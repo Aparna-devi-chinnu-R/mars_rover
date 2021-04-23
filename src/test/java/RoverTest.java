@@ -5,6 +5,8 @@ public class RoverTest
     @Test
     public void shouldReturnTheCurrentPositionAfterGivenMovements()
     {
-        new Rover();
+        new Plateau();
+       Rover rover = new Rover();
+
     }
 }
