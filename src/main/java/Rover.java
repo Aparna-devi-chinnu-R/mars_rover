@@ -6,7 +6,6 @@ public class Rover
     private int x;
     private int y;
     private char dir;
-
     public void setInitialPosition(int x, int y, char dir)
     {
         this.x=x;
@@ -77,4 +76,7 @@ public class Rover
         else{dir = 'N';}
     }
 
+    public void printCurrentPosition()
+    {
+    }
 }
