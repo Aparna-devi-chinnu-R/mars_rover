@@ -76,7 +76,8 @@ public class Rover
         else{dir = 'N';}
     }
 
-    public void printCurrentPosition()
+    public String printCurrentPosition()
     {
+        return x+" "+y+" "+dir;
     }
 }
