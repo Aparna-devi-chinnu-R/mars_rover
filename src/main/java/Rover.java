@@ -1,3 +1,6 @@
+import Exceptions.MessageCorruptedException;
+import Exceptions.PlateauSizeViolatedException;
+
 public class Rover
 {
     private int x;
@@ -11,8 +14,7 @@ public class Rover
         this.dir=dir;
     }
 
-    public void commands(String command)
-    {
+    public void commands(String command) throws MessageCorruptedException, PlateauSizeViolatedException {
         for(int i=0;i<command.length();i++)
         {
             char single_command = command.charAt(i);
@@ -28,26 +30,34 @@ public class Rover
             {
                 move();
             }
+            else
+            {
+                throw new MessageCorruptedException("Message is corrupted.Message cannot be identified");
+            }
         }
     }
 
-    private void move()
-    {
-        if(dir =='N')
+    private void move() throws PlateauSizeViolatedException {
+
+        if(dir =='N' && this.x+1 <= Plateau.getMax_x())
         {
             this.x++;
         }
-        else if(dir == 'S')
+        else if(dir == 'S' && this.x-1 <=0)
         {
             this.x--;
         }
-        else if(dir == 'E')
+        else if(dir == 'E' && this.y+1 <= Plateau.getMax_y())
         {
             this.y++;
         }
-        else
+        else if(dir == 'W' && this.y-1 <=0)
         {
             this.y--;
+        }
+        else
+        {
+            throw new PlateauSizeViolatedException("Size of the plateau is violated");
         }
     }
 
