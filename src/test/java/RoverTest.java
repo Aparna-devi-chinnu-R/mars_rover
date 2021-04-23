@@ -2,6 +2,8 @@ import Exceptions.MessageCorruptedException;
 import Exceptions.PlateauSizeViolatedException;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class RoverTest
 {
     @Test
@@ -12,7 +14,7 @@ public class RoverTest
         Rover rover = new Rover();
         rover.setInitialPosition(1,2,'N');
         rover.commands("LMLMLMLMM");
-        rover.printCurrentPosition();
+        assertEquals("1 3 N",rover.printCurrentPosition());
 
     }
 }

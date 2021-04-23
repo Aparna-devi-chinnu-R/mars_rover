@@ -38,21 +38,21 @@ public class Rover
 
     private void move() throws PlateauSizeViolatedException {
 
-        if(dir =='N' && this.x+1 <= Plateau.getMax_x())
-        {
-            this.x++;
-        }
-        else if(dir == 'S' && this.x-1 <=0)
-        {
-            this.x--;
-        }
-        else if(dir == 'E' && this.y+1 <= Plateau.getMax_y())
+        if(dir =='N' && this.y+1 <= Plateau.getMax_y())
         {
             this.y++;
         }
-        else if(dir == 'W' && this.y-1 <=0)
+        else if(dir == 'S' && this.y-1 >=0)
         {
             this.y--;
+        }
+        else if(dir == 'E' && this.x+1 <= Plateau.getMax_x())
+        {
+            this.x++;
+        }
+        else if(dir == 'W' && this.x-1 >=0)
+        {
+            this.x--;
         }
         else
         {
