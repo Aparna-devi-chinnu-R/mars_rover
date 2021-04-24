@@ -33,4 +33,9 @@ public class RoverTest
         assertThrows(PlateauSizeViolatedException.class ,() -> rover.commands("MMRMMRMRRM"));
 
     }
+    @Test
+    public void shouldRaiseAnExceptionIfMessageContainsOtherAlphabetThanLRM()
+    {
+
+    }
 }
