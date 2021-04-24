@@ -34,8 +34,13 @@ public class RoverTest
 
     }
     @Test
-    public void shouldRaiseAnExceptionIfMessageContainsOtherAlphabetThanLRM()
+    public void shouldRaiseAnExceptionIfMessageContainsOtherAlphabetThanLRM() throws PlateauSizeViolatedException
     {
-
+        Plateau plateau =new Plateau();
+        plateau.setMax_x(5);
+        plateau.setMax_y(5);
+        Rover rover = new Rover();
+        rover.setInitialPosition(3,3,'E');
+        assertThrows(MessageCorruptedException.class ,() -> rover.commands("MMRPKLSM"));
     }
 }
