@@ -6,11 +6,13 @@ public class Rover
     private int x;
     private int y;
     private char dir;
-    public void setInitialPosition(int x, int y, char dir)
+    Plateau plateau;
+    public void setInitialPosition(int x, int y, char dir,Plateau plateau)
     {
         this.x=x;
         this.y=y;
         this.dir=dir;
+        this.plateau=plateau;
     }
 
     public void commands(String command) throws MessageCorruptedException, PlateauSizeViolatedException {
@@ -38,7 +40,7 @@ public class Rover
 
     private void move() throws PlateauSizeViolatedException {
 
-        if(dir =='N' && this.y+1 <= Plateau.getMax_y())
+        if(dir =='N' && this.y+1 <= plateau.getMax_y())
         {
             this.y++;
         }
@@ -46,7 +48,7 @@ public class Rover
         {
             this.y--;
         }
-        else if(dir == 'E' && this.x+1 <= Plateau.getMax_x())
+        else if(dir == 'E' && this.x+1 <= plateau.getMax_x())
         {
             this.x++;
         }

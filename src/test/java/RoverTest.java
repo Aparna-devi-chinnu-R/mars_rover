@@ -13,11 +13,11 @@ public class RoverTest
         plateau.setMax_x(5);
         plateau.setMax_y(5);
         Rover first_rover = new Rover();
-        first_rover.setInitialPosition(1,2,'N');
+        first_rover.setInitialPosition(1,2,'N',plateau);
         first_rover.commands("LMLMLMLMM");
         assertEquals("1 3 N",first_rover.printCurrentPosition());
         Rover second_rover = new Rover();
-        second_rover.setInitialPosition(3, 3, 'E');
+        second_rover.setInitialPosition(3, 3, 'E',plateau);
         second_rover.commands("MMRMMRMRRM");
         assertEquals("5 1 E",second_rover.printCurrentPosition());
 
@@ -29,7 +29,7 @@ public class RoverTest
         plateau.setMax_x(4);
         plateau.setMax_y(4);
         Rover rover = new Rover();
-        rover.setInitialPosition(3,3,'E');
+        rover.setInitialPosition(3,3,'E',plateau);
         assertThrows(PlateauSizeViolatedException.class ,() -> rover.commands("MMRMMRMRRM"));
 
     }
@@ -40,7 +40,7 @@ public class RoverTest
         plateau.setMax_x(5);
         plateau.setMax_y(5);
         Rover rover = new Rover();
-        rover.setInitialPosition(3,3,'E');
+        rover.setInitialPosition(3,3,'E',plateau);
         assertThrows(MessageCorruptedException.class ,() -> rover.commands("MMRPKLSM"));
     }
 }
